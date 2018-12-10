@@ -4,9 +4,8 @@ title: Introduction
 sidebar_label: Introduction
 ---
 
-Scaffold Kit is a set of building blocks for creating node.js scaffold tools.
-
-It simplifies the process of creating a scaffold tool, reduces redundant
+Scaffold Kit is a set of building blocks for creating node.js scaffold tools. It
+simplifies the process of creating a scaffold tool, reduces redundant
 boilerplate code.
 
 ## Motivation
