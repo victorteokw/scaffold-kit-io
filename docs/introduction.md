@@ -29,14 +29,51 @@ scaffold tools.
 command line tool, an app has several subcommands named commands and app level
 options. Besides, the app defines the scaffold tool's description and version.
 
-* __command__ the command represents a user's action.
+* __command__ a command represents a user's choice or action. It's the
+subcommand that being executed. A command accepts it's own command line
+arguments and options. The options defined in command are command level options.
 
-* __instruction__ the instruction.
+* __instruction__ the instruction is what we tell scaffold kit to do. When
+executing a command, we create instructions from user's input (aka arguments and
+options). The instructions are pushed to the execution stack, and they are
+rearranged and optimized.
+
+* __executor__ the executor is the object that orchestrates the execution of
+instructions. It manages where template files are located, and where to generate
+the output files. It has global options that can be toggled. It has functions to
+manipulate or revert a instruction. And at last, it executes the instructions.
+
+* __behavioral__
 
 ## Features included
 
-## Learn Scaffold Kit
+* __multiple instructions__ including template rendering, keeping directory,
+running shell commands, installing and removing dependencies.
 
-* Installation.
-* Learn Saffold Kit through this [tutorial](tutorial).
-* Read the [API documentation](api-doc).
+* __compound command__ Scaffold kit supports command that is combination of
+several commands, the execution and options are automatically merged.
+
+* __reversible instruction__ with a builtin function, we can reverse an
+instruction into it's reversed instruction. For example, reverse installing into
+removing, reverse creating a file into deleting a file.
+
+* __behavioral__
+
+* __auto generated help__ the help message are automatically generated from the
+commands and options that defined in the app object and the command objects.
+
+* __serialized options__ scaffold kit automatically serialize user's savable
+options into a record file. These are the default options when user haven't
+specify these options' value.
+
+* __arranged instructions__ in a command, there are a lot of instructions to be
+executed. Scaffold kit rearrange them into alphabetical order and makes them
+look and output cleanly.
+
+* __unit testing made easy__ with scaffold kit unit testing tool, you can unit
+test your scaffold tool easily.
+
+## Next
+
+* [Tutorial: create your first scaffold tool](create-your-first-scaffold-tool)
+* [Read the API documentation](api-doc)
