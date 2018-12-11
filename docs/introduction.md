@@ -32,7 +32,7 @@ options. Besides, the app defines the scaffold tool's description and version.
 subcommand that being executed. A command accepts it's own command line
 arguments and options. The options defined in command are command level options.
 
-* __instruction__ the instruction is what we tell scaffold kit to do. When
+* __instruction__ the instruction is what we tell Scaffold Kit to do. When
 executing a command, we create instructions from user's input (aka arguments and
 options). The instructions are pushed to the execution stack, and they are
 rearranged and optimized.
@@ -49,7 +49,7 @@ manipulate or revert a instruction. And at last, it executes the instructions.
 * __multiple instructions__ including template rendering, keeping directory,
 running shell commands, installing and removing dependencies.
 
-* __compound command__ Scaffold kit supports command that is combination of
+* __compound command__ Scaffold Kit supports command that is combination of
 several commands, the execution and options are automatically merged.
 
 * __reversible instruction__ with a builtin function, we can reverse an
@@ -61,15 +61,15 @@ removing, reverse creating a file into deleting a file.
 * __auto generated help__ the help message are automatically generated from the
 commands and options that defined in the app object and the command objects.
 
-* __serialized options__ scaffold kit automatically serialize user's savable
+* __serialized options__ scaffold Kit automatically serialize user's savable
 options into a record file. These are the default options when user haven't
 specify these options' value.
 
 * __arranged instructions__ in a command, there are a lot of instructions to be
-executed. Scaffold kit rearrange them into alphabetical order and makes them
+executed. Scaffold Kit rearrange them into alphabetical order and makes them
 look and output cleanly.
 
-* __unit testing made easy__ with scaffold kit unit testing tool, you can unit
+* __unit testing made easy__ with scaffold Kit unit testing tool, you can unit
 test your scaffold tool easily.
 
 ## Next

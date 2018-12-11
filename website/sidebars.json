@@ -1,7 +1,7 @@
 {
   "docs": {
     "Introduction": ["introduction"],
-    "Tutorials": ["tutorial-create-your-first-scaffold-tool"],
+    "Guide": ["tutorial-create-your-first-scaffold-tool"],
     "API documentation": ["api-main"]
   }
 }
