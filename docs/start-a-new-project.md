@@ -21,3 +21,6 @@ new project with `scaffold-kit-cli` and name it `blog`.
 ```bash
 scaffold-kit app blog --git-init
 ```
+
+The option `--git-init` automatically run `git init` in the destination
+directory. Navigate into `blog`, we see several files being created.
