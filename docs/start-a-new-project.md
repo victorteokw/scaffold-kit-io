@@ -15,8 +15,8 @@ scaffold tool based on Scaffold Kit that generates Scaffold Kit projects.
 npm install scaffold-kit-cli -g
 ```
 
-In this guide, we are going to create a blog scaffold tool. We create a
-new project with `scaffold-kit-cli` and name it `blog`.
+In this guide, we are going to create a blog scaffold tool. We create a new
+project with `scaffold-kit-cli` and name it `blog`.
 
 ```bash
 scaffold-kit app blog --git-init
