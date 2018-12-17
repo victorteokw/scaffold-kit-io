@@ -17,10 +17,17 @@ existing projects. Doing this is cumbersome and strange bugs may occur. Using a
 scaffold tool to create a starter project with configurations is a more elegant
 way to achieve this.
 
-However, when created several scaffold tools or creating a complicated scaffold
-tool, there are a lot of common patterns and features. These logics should
-reside outside of the scaffold tool itself, founding the basic architecture of
-scaffold tools.
+However, creating a scaffold tool requires a lot of extra work. We need to write
+code to copy files, render templates, and parse command line arguments. It takes
+longer than copying code from previous project. This prevents us from creating
+a reusable and extendable scaffold tool.
+
+When creating a complicated scaffold tool after created several scaffold tools,
+we found there are a lot of common patterns and features. We pull out the common
+and fundamental features from the scaffold tools, created Scaffold Kit.
+
+With Scaffold Kit, creating a scaffold tool is as easy as following a tutorial,
+and takes even shorter time than copying code.
 
 ## Core concepts
 
@@ -42,21 +49,26 @@ instructions. It manages where template files are located, and where to generate
 the output files. It has global options that can be toggled. It has functions to
 manipulate or revert a instruction. And at last, it executes the instructions.
 
-* __behavioral__
+* __behavioral__ a complicated scaffold tool supports complex generation
+configurations. Some configuration tweaks the entire behavior of the generated
+app and it controls in what way the scaffold tool generates. There may be extra
+command line options and code generation related to this special configuration.
+We call this kind of configuration behavioral.
 
 ## Features included
 
-* __multiple instructions__ including template rendering, keeping directory,
-running shell commands, installing and removing dependencies.
+* __instruction stack__ including template rendering, keeping directory, running
+shell commands, installing and removing dependencies.
 
 * __compound command__ Scaffold Kit supports command that is combination of
 several commands, the execution and options are automatically merged.
 
-* __reversible instruction__ with a builtin function, we can reverse an
+* __reversible instruction__ with a builtin function, you can reverse an
 instruction into it's reversed instruction. For example, reverse installing into
 removing, reverse creating a file into deleting a file.
 
-* __behavioral__
+* __behavioral__ create complicated scaffold tool with builtin behavioral
+feature.
 
 * __auto generated help__ the help message are automatically generated from the
 commands and options that defined in the app object and the command objects.
