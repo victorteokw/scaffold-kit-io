@@ -1,7 +1,13 @@
 {
   "docs": {
     "Introduction": ["introduction"],
-    "Guide": ["start-a-new-project"],
+    "Guide": [
+      "start-a-new-project",
+      "create-first-command",
+      "update-existing-file",
+      "create-destroy-command",
+      "wrap-existing-project-into-scaffold-tool"
+    ],
     "API documentation": ["api-main"]
   }
 }
