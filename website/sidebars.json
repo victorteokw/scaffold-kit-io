@@ -6,7 +6,8 @@
       "create-first-command",
       "update-existing-file",
       "create-destroy-command",
-      "wrap-existing-project-into-scaffold-tool"
+      "wrap-existing-project",
+      "unit-test"
     ],
     "API documentation": ["api-main"]
   }

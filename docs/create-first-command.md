@@ -29,7 +29,7 @@ with the following content.
 ```html
 <html>
 <head>
-<title>Home - <%= title %></title>
+  <title>Home - <%= title %></title>
 </head>
 <body>
   <h1><%= title %></h1>
