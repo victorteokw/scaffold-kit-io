@@ -7,6 +7,9 @@
       "update-existing-file",
       "create-destroy-command",
       "wrap-existing-project",
+      "command-options",
+      "template-rendering",
+      "compound-command",
       "unit-test"
     ],
     "API documentation": ["api-main"]
