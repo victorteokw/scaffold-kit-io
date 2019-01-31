@@ -1,6 +1,6 @@
 ---
 id: unit-test
-title: Unit Test
+title: Unit test
 ---
 
 Content
