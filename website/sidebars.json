@@ -10,6 +10,8 @@
       "command-options",
       "template-rendering",
       "compound-command",
+      "rc-file",
+      "behavioral",
       "unit-test"
     ],
     "API documentation": ["api-main"]
