@@ -9,7 +9,7 @@ When creating a file or appending a file from a template, the instructions
 accept a parameter named context, which will be passed to the template file and
 render them out. See the example.
 
-* The execution
+### The execution
 
 ```js
 createFile({
@@ -21,7 +21,7 @@ createFile({
 });
 ```
 
-* The template
+### The template
 
 ```js
 const Koa = require('koa');
