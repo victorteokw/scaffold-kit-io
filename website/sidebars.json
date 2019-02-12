@@ -10,7 +10,7 @@
       "command-options",
       "template-rendering",
       "compound-command",
-      "rc-file",
+      "option-serialization",
       "behavioral",
       "unit-test"
     ],
