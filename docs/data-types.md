@@ -1,6 +1,6 @@
 ---
-id: api-main
-title: API documentation
+id: data-types
+title: Data Types
 ---
 
 This is a link to [another document.](doc3.md)  

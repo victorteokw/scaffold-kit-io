@@ -11,9 +11,15 @@
       "template-rendering",
       "compound-command",
       "option-serialization",
-      "behavioral",
+      "behaviorals",
       "unit-test"
     ],
-    "API documentation": ["api-main"]
+    "API documentation": [
+      "data-types",
+      "app-api",
+      "command-api",
+      "execution-api",
+      "instruction-api"
+    ]
   }
 }
