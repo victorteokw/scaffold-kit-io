@@ -12,7 +12,7 @@
       "compound-command",
       "option-serialization",
       "behaviorals",
-      "unit-test"
+      "unit-test-your-scaffold-tool"
     ],
     "API documentation": [
       "data-types",

@@ -1,6 +1,6 @@
 ---
-id: behavioral
-title: Behavioral
+id: behaviorals
+title: Behaviorals
 ---
 
 Content
