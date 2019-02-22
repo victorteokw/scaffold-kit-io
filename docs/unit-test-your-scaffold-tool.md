@@ -54,3 +54,64 @@ By running this, you get test dependencies and setup files installed. Besides,
 you get example test file in `tests` directory.
 
 ## Understanding the unit test file
+
+A newly generated unit test file looks like this.
+
+```js
+const path = require('path');
+const {
+  setupTestCase,
+  tearDownTest,
+  runTestCase,
+  iterateExpectedFiles
+} = require('scaffold-kit-quality-testing');
+const app = require('../../lib/app');
+
+describe('heck command: ', () => {
+
+  describe('TODO: update your describing here', () => {
+    const handle = setupTestCase({
+      app,
+      expects: path.join(__dirname, '../expected/heck/example'),
+      fixtures: path.join(__dirname, '../fixtures/heck/example'),
+      command: 'heck'
+    });
+    beforeAll(runTestCase(handle));
+    afterAll(tearDownTest(handle));
+    iterateExpectedFiles(handle, ({ message, expected, generated }) => {
+      it(message, () => {
+        expect(generated()).toBe(expected);
+      });
+    });
+  });
+
+});
+```
+
+We require unit test utility functions `setupTestCase`, `tearDownTest`,
+`runTestCase` and `iterateExpectedFiles` from Scaffold Kit testing utility. To
+test a command, create a describe block and create a handle. Specify the app
+and the command input (can be a long string like `'destroy blog --remove-git'`
+or an array of tokens like `['destroy', 'blog', '--remove-git']`). Point the
+`expects` and `fixtures` to the directories those files are located. And hook
+`runTestCase` and `tearDownTest` into `beforeAll` and `afterAll` blocks. Then
+let Scaffold Kit testing utility generate `it` blocks for us. When running
+`npm test`, you get result like this.
+
+```txt
+PASS  tests/commands/heckTest.js
+ heck command:
+   TODO: update your describing here
+     ✓ keeps file 'existing.txt'. (5ms)
+     ✓ creates file 'heck.txt'.
+```
+
+## Conclusion
+
+Depending on the complexity of your scaffold tool, the structure of unit tests
+are depend on you. However you set up the tests and organize the test structure,
+the Scaffold Kit testing utility is essential for testing the scaffold tool
+command behavior. The Scaffold Kit testing utility reduce your unit test code to
+the minimum quantity and doesn't create redundant code for you. For a large
+project, you are tend to unit test a lot of different kind of code other than
+command. You can easily refactor your unit test code as it grows.
