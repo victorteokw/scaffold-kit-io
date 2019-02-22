@@ -86,5 +86,5 @@ test your scaffold tool easily.
 
 ## Next
 
-* [Tutorial: create your first scaffold tool](create-your-first-scaffold-tool)
+* [Read the Guide](start-a-new-project)
 * [Read the API documentation](api-doc)
