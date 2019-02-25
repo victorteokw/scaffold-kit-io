@@ -22,7 +22,7 @@ const users = [
 
 const siteConfig = {
   title: 'Scaffold Kit', // Title for your website.
-  tagline: 'Create scaffold tools made easy',
+  tagline: 'Build powerful scaffolding tools easy and fast',
   url: 'https://scaffold-kit.io', // Your website URL
   baseUrl: '/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
@@ -48,14 +48,14 @@ const siteConfig = {
   users,
 
   /* path to images for header/footer */
-  headerIcon: 'img/docusaurus.svg',
-  footerIcon: 'img/docusaurus.svg',
-  favicon: 'img/favicon.png',
+  headerIcon: 'img/tool-white.svg',
+  footerIcon: 'img/tool-white.svg',
+  favicon: 'img/tool-red.svg',
 
   /* Colors for website */
   colors: {
     primaryColor: '#921311',
-    secondaryColor: '#b1a1df',
+    secondaryColor: '#CF4845',
   },
 
   /* Custom fonts for website */
@@ -89,18 +89,16 @@ const siteConfig = {
   cleanUrl: true,
 
   // Open Graph and Twitter card images.
-  ogImage: 'img/docusaurus.png',
-  twitterImage: 'img/docusaurus.png',
+  ogImage: 'img/tool-red.png',
+  twitterImage: 'img/tool-red.png',
 
   // Show documentation's last contributor's name.
   // enableUpdateBy: true,
 
   // Show documentation's last update time.
-  // enableUpdateTime: true,
+  enableUpdateTime: true,
 
-  // You may provide arbitrary config keys to be used as needed by your
-  // template. For example, if you need your repo's URL...
-  //   repoUrl: 'https://github.com/facebook/test-site',
+  repoUrl: 'https://github.com/zhangkaiyulw/scaffold-kit',
 };
 
 module.exports = siteConfig;

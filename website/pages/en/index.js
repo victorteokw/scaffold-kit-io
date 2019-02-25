@@ -104,15 +104,15 @@ const Features = () => (
     {[
       {
         content: 'This is the content of my feature',
-        image: imgUrl('docusaurus.svg'),
+        image: imgUrl('tool-red.svg'),
         imageAlign: 'top',
-        title: 'Feature One',
+        title: 'Few Setup Code',
       },
       {
-        content: 'The content of my second feature',
-        image: imgUrl('docusaurus.svg'),
+        content: 'Wrap existing projects into scaffold tools in 1 minute with 3 commands.',
+        image: imgUrl('tool-red.svg'),
         imageAlign: 'top',
-        title: 'Feature Two',
+        title: 'Stunningly Easy to Develop',
       },
     ]}
   </Block>
@@ -144,8 +144,8 @@ const TryOut = () => (
   <Block id="try">
     {[
       {
-        content: 'Talk about trying this out',
-        image: imgUrl('docusaurus.svg'),
+        content: 'npm install -g scaffold-kit-cli',
+        image: imgUrl('teamwork.svg'),
         imageAlign: 'left',
         title: 'Try it Out',
       },
