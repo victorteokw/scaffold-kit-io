@@ -141,16 +141,22 @@ const LearnHow = () => (
 );
 
 const TryOut = () => (
-  <Block id="try">
-    {[
-      {
-        content: 'npm install -g scaffold-kit-cli',
-        image: imgUrl('teamwork.svg'),
-        imageAlign: 'left',
-        title: 'Try it Out',
-      },
-    ]}
-  </Block>
+  <MarkdownBlock>
+    These are features of this project.
+    ```bash
+      npm install -g scaffold-kit-cli
+    ```
+  </MarkdownBlock>
+  // <Block id="try">
+  //   {[
+  //     {
+  //       content: 'a',
+  //       image: imgUrl('teamwork.svg'),
+  //       imageAlign: 'left',
+  //       title: 'Try it Out',
+  //     },
+  //   ]}
+  // </Block>
 );
 
 const Description = () => (
