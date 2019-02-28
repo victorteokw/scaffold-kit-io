@@ -34,5 +34,6 @@ The option port is passed into the template, when creating the file, the real
 port number that specified by option default or user command line input are
 rendered.
 
-To learn more about Scaffold Kit instructions, see instruction documentation.
+To learn more about Scaffold Kit instructions, see
+[instruction API](instruction-api).
 For the usage and documentation of ejs, see [ejs website](https://ejs.co/).
