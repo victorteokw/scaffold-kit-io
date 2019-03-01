@@ -39,7 +39,7 @@ The command object represents a command.
 | ----------------- | -------------------------------- | -------- | ---------------------------------------- |
 | `description`     | String                           | Required | Single line description of the command.  |
 | `usage`           | String                           | Optional | The command's command line usage.        |
-| `options`         | Array\<[Option](#option)\>       | Required | The command's command line options.      |
+| `options`         | Array\<[Option](#option)\> &#124; [ExecutionContext](#executioncontext) -> Array\<[Option](#option)\> | Required | The command's command line options or a function that returns them.      |
 | `executeInProjectRootDirectory` | Boolean            | Optional | Whether jump to project's root dir.      |
 | `execution`       | [ExecutionFunc](#executionfunc)  | Optional | The execution of the command.            |
 | `beforeExecution` | [ExecutionFunc](#executionfunc)  | Optional | The command's before execution hook.     |
