@@ -1,6 +1,6 @@
 ---
-id: data-types
-title: Data types
+id: command-api
+title: Command API
 ---
 
 This is a link to [another document.](doc3.md)  

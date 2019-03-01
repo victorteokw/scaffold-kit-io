@@ -1,6 +1,6 @@
 ---
-id: data-types
-title: Data types
+id: instruction-api
+title: Instruction API
 ---
 
 This is a link to [another document.](doc3.md)  

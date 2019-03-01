@@ -1,6 +1,6 @@
 ---
-id: data-types
-title: Data types
+id: app-api
+title: App API
 ---
 
 This is a link to [another document.](doc3.md)  
