@@ -11,7 +11,7 @@ title: Data types
 | [ExecutionContext](#executioncontext)  |
 | [Option](#option)                      |
 | [Behavioral](#behavioral)              |
-
+| [BehavioralValue](#behavioralvalue)    |
 
 ## App
 
