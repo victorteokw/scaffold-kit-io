@@ -7,12 +7,12 @@ title: Execution API
 | --------------------------------------- |
 | [useTemplatesFrom](#usetemplatesfrom)   |
 | [pushInstruction](#pushinstruction)     |
-| [pushInstructions](#pushInstructions)   |
-| [getInstructions](#getInstructions)     |
-| [replaceInstructions](#replaceInstructions) |
-| [revertInstruction](#revertInstruction) |
-| [setExecutorOption](#setExecutorOption) |
-| [resetExecutor](#resetExecutor)         |
+| [pushInstructions](#pushinstructions)   |
+| [getInstructions](#getinstructions)     |
+| [replaceInstructions](#replaceinstructions) |
+| [revertInstruction](#revertinstruction) |
+| [setExecutorOption](#setexecutoroption) |
+| [resetExecutor](#resetexecutor)         |
 
 ## useTemplatesFrom
 
@@ -26,7 +26,7 @@ If called multiple times, the latter takes precedence.
 
 ## pushInstruction
 
-Push an instruction into the executor's instruction stack. Should be called
+Push an instruction onto the executor's instruction stack. Should be called
 inside the execution block. This is a low level programming tool. For code
 simplicity and readability, use [instruction shortcuts](instruction-api.md)
 instead.
@@ -39,64 +39,169 @@ instead.
 ### Example
 
 ```js
-// the execution of the destroy command
-execute: async ({ args, options, wd }) => {
-  const [commandName, ...commandArgs] = args;
-  await executeCommand(
-    app,
-    loadCommand(app, commandName),
-    { args: commandArgs, options, wd }
-  );
-  replaceInstructions(reverse(map(getInstructions(), revertInstruction)));
-}
+// push single instruction
+pushInstruction({
+  'createFile': {
+    from: '_README.md',
+    at: 'README.md',
+    context: { title: "New Website Title" }
+  }
+});
+
+// push multiple instructions
+pushInstruction({
+  'createFiles': [
+    {
+      content: 'module.exports = {};',
+      at: 'emptyObject.js'
+    },
+    {
+      content: 'module.exports = null;',
+      at: 'null.js'
+    }
+  ]
+});
 ```
 
-## loadCommand
+## pushInstructions
 
-Load an app's command by its command name.
+Push multiple instructions onto the executor's instruction stack. Should be
+called inside the execution block. This is a low level programming tool. For
+code simplicity and readability, use [instruction shortcuts](instruction-api.md)
+instead.
 
 | Field           | Type                             | Description                           | Default value  |
 | --------------- | -------------------------------- | ------------------------------------- | -------------- |
-| Parameter 1     | [App](data-types.md#app)         | The app which the command belongs to. | Required       |
-| Parameter 2     | String                           | The command's name.                   | Required       |
-| Return value    | [Command](data-types.md#command) | The loaded command.                   |                |
+| Parameter 1     | Array\<Object\<String, Object &#124; Array\<Object\>\>\> | The instructions. | Required   |
+| Return value    | Void                             |                                       |                |
 
 ### Example
 
 ```js
-// the execution of the destroy command
-execute: async ({ args, options, wd }) => {
-  const [commandName, ...commandArgs] = args;
-  await executeCommand(
-    app,
-    loadCommand(app, commandName),
-    { args: commandArgs, options, wd }
-  );
-  replaceInstructions(reverse(map(getInstructions(), revertInstruction)));
-}
+// push multiple instructions in a single call
+pushInstructions([
+  {
+    createFile: {
+      from: '_.gitignore',
+      at: '.gitignore'
+    }
+  },
+  {
+    keepDirectoryInGit: {
+      at: 'doNotDelete'
+    }
+  }
+]);
 ```
 
-## getCommandOptions
+## getInstructions
 
-Get a command's option list. A command's options definition can be dynamic.
-Sometimes it's an array, sometimes it's value is an function. Sometimes a
-command is a compound command, you can not get it's command options directly
-from the command object. Always use this function when you want to get a
-command's options.
+Get all instructions from the executor. The instructions are copied. You cannot
+modify the instructions directly here. To replace all instructions in the stack,
+use [replaceInstructions](#replaceinstructions).
 
 | Field           | Type                             | Description                           | Default value  |
 | --------------- | -------------------------------- | ------------------------------------- | -------------- |
-| Parameter 1     | [App](data-types.md#app)         | The app which the command belongs to. | Required       |
-| Parameter 2     | [Command](data-types.md#command) | The command object.                   | Required       |
-| Parameter 3     | [ExecutionContext](data-types.md#executioncontext) | The execution context. | Required    |
-| Return value    | Array\<[Option](data-types.md#option)\> | The command's option list.     |                |
+| Return value    | [Instruction](data-types.md#instruction) | The instruction object.       |                |
+
+## replaceInstructions
+
+Replace the instructions in the executor's instruction stack.
+
+| Field           | Type                             | Description                           | Default value  |
+| --------------- | -------------------------------- | ------------------------------------- | -------------- |
+| Parameter 1     | [Instruction](data-types.md#instruction) | The instruction object.       | Required       |
+| Return value    | Void                                     |                               |                |
+
+## revertInstruction
+
+Get a new instruction which has the opposite behavior to the given instruction.
+For example, given `createFile` at `some/path`, the return value is `deleteFile`
+at `some/path`.
+
+| Field           | Type                             | Description                           | Default value  |
+| --------------- | -------------------------------- | ------------------------------------- | -------------- |
+| Parameter 1     | [Instruction](data-types.md#instruction) | The given instruction.        | Required       |
+| Return value    | [Instruction](data-types.md#instruction) | The reverted instruction.     |                |
+
+## setExecutorOption
+
+Setting the overall default behavior of the executor.
+
+| Field           | Type                             | Description                           | Default value  |
+| --------------- | -------------------------------- | ------------------------------------- | -------------- |
+| Parameter 1     | String                           | The option key.                       | Required       |
+| Parameter 2     | Any                              | The option value.                     | Required       |
+| Return value    | Void                             |                                       |                |
 
 ### Example
 
 ```js
-// a simple implementation of destroy command's options
-options: (input) => {
-  const command = loadCommand(app, input.args[0]);
-  return getCommandOptions(app, command, input);
-},
+// Setting executor option in the app before execution hook.
+const path = require('path');
+const appPackage = require('../package.json');
+const { createApp } = require('scaffold-kit/app');
+const { setExecutorOption } = require('scaffold-kit/executor');
+
+const app = createApp({
+  appName: 'Amur',
+  commandName: 'amur',
+  description: appPackage.description,
+  version: appPackage.version,
+  rcFile: '.amurrc.json',
+  options: [
+    {
+      name: 'overwrite',
+      type: Boolean,
+      description: 'whether overwrite existing file.',
+      defaultValue: false,
+      saveToPreference: false
+    },
+    {
+      name: 'mockInstall',
+      type: Boolean,
+      description: 'update dependency list without installing.',
+      defaultValue: false,
+      saveToPreference: false
+    },
+    {
+      name: 'silent',
+      type: Boolean,
+      description: 'whether suppress output.',
+      defaultValue: false,
+      saveToPreference: false
+    }
+  ],
+  commands: {
+    'app': path.join(__dirname, './commands/app'),
+    'model': path.join(__dirname, './commands/model'),
+    'schema': path.join(__dirname, './commands/schema'),
+    'resolver': path.join(__dirname, './commands/resolver'),
+    'resource': path.join(__dirname, './commands/resource'),
+    'nestable': path.join(__dirname, './commands/nestable'),
+    'uploader': path.join(__dirname, './commands/uploader'),
+    'destroy': path.join(__dirname, './commands/destroy')
+  },
+  beforeExecution: ({ options }) => {
+    if (options.overwrite) {
+      setExecutorOption('overwrite', true);
+    }
+    if (options.silent) {
+      setExecutorOption('silent', true);
+    }
+    if (options.mockInstall) {
+      setExecutorOption('mock', true);
+    }
+  }
+});
+
+module.exports = app;
 ```
+
+## resetExecutor
+
+Clear all cached executor data and reset the executor to the initial status.
+
+| Field           | Type                             | Description                           | Default value  |
+| --------------- | -------------------------------- | ------------------------------------- | -------------- |
+| Return value    | Void                             |                                       |                |

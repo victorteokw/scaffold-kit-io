@@ -10,6 +10,7 @@ title: Data types
 | [ExecutionFunc](#executionfunc)        |
 | [ExecutionContext](#executioncontext)  |
 | [Option](#option)                      |
+| [Instruction](#instruction)            |
 | [Behavioral](#behavioral)              |
 | [BehavioralValue](#behavioralvalue)    |
 
@@ -83,6 +84,20 @@ The option object represents command line option definition. It's a extension of
 | `saveToPreference` | Boolean | Optional | Whether automatically save this option's value into `.rc` file. |
 
 See [command-line-args](https://github.com/75lb/command-line-args) package for more fields.
+
+## Instruction
+
+The instruction object is the object you get when modifying and editing
+instructions. You can get these objects from
+[getInstructions](execution-api.md#getinstructions). And you can pass these
+objects to [replaceInstructions](execution-api.md#replaceinstructions). These
+are *not* used with [pushInstruction](execution-api.md#pushinstruction) and
+[pushInstructions](execution-api.md#pushinstructions).
+
+| Field              | Type    | Required | Description                        |
+| ------------------ | ------- | -------- | ---------------------------------- |
+| `name`             | String  | Required | The instruction's name.            |
+| `params`           | Object  | Required | The instruction's parameters.      |
 
 ## Behavioral
 
