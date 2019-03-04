@@ -67,7 +67,7 @@ Append content to an existing file at given path.
 | -------- | ------- | ---------------------------------------------------------- |
 | content  | String  | The new content's template string. Exclusive with `from`.  |
 | from     | String  | Where to copy the file template. Exclusive with `content`. |
-| at       | String  | The name of the file to be appended.                       |
+| at       | String  | The path of the file to be appended.                       |
 | context  | Object  | The rendering context.                                     |
 
 ## appendFiles
@@ -97,7 +97,7 @@ Update an existing file at given path.
 | ---------- | ---------------- | -------------------------------------------------------------------------- |
 | updator    | String -> String | The content updator. Take the original content and return the new content. |
 | rollbacker | String -> String | The content rollbacker. Used for reverse transforming `rollbackFile`.      |
-| at         | String           | The name of the file to be updated.                                        |
+| at         | String           | The path of the file to be updated.                                        |
 
 ## updateFiles
 
@@ -105,7 +105,8 @@ Update existing files at given paths.
 
 ## rollbackFile
 
-Rollback an existing file at given path.
+Rollback an existing file at given path. It takes the same arguments with
+`updateFile`.
 
 ## rollbackFiles
 
@@ -115,13 +116,20 @@ Rollback existing files at given paths.
 
 Update an existing JSON file at given path.
 
+| Field      | Type             | Description                                                                   |
+| ---------- | ---------------- | ----------------------------------------------------------------------------- |
+| updator    | Any -> Any       | The content updator. Take the original JSON object and return the new object. |
+| rollbacker | Any -> Any       | The content rollbacker. Used for reverse transforming `rollbackJSONFile`.     |
+| at         | String           | The path of the JSON file to be updated.                                      |
+
 ## updateJSONFiles
 
 Update existing JSON files at given paths.
 
 ## rollbackJSONFile
 
-Rollback an existing JSON file at given path.
+Rollback an existing JSON file at given path. It takes the same arguments with
+`updateJSONFile`.
 
 ## rollbackJSONFiles
 
@@ -131,6 +139,12 @@ Rollback existing JSON files at given paths.
 
 Install a dependency to the working project.
 
+| Field   | Type     | Description                                          |
+| ------- | -------- | ---------------------------------------------------- |
+| package | String   | The package's name.                                  |
+| version | String   | The package's version.                               |
+| dev     | Boolean  | Whether save to `dependencies` or `devDependencies`. |
+
 ## installDependencies
 
 Install dependencies to the working project.
@@ -138,6 +152,10 @@ Install dependencies to the working project.
 ## removeDependency
 
 Uninstall a dependency from the working project.
+
+| Field   | Type     | Description                                          |
+| ------- | -------- | ---------------------------------------------------- |
+| package | String   | The package's name.                                  |
 
 ## removeDependencies
 
@@ -147,13 +165,19 @@ Uninstall dependencies from the working project.
 
 Run a shell command in the working directory.
 
+| Field          | Type     | Description                              |
+| -------------- | -------- | ---------------------------------------- |
+| command        | String   | The shell command to be executed.        |
+| reverseCommand | String   | The reverse command. (the undo command)  |
+
 ## runShellCommands
 
 Run shell commands in the working directory.
 
 ## undoShellCommand
 
-Undo a shell command in the working directory.
+Undo a shell command in the working directory. It takes the same arguments with
+`runShellCommand`.
 
 ## undoShellCommands
 
@@ -163,6 +187,10 @@ Undo some shell commands in the working directory.
 
 If the given path is empty, creates a `.keep` file at the given path, else does
 nothing.
+
+| Field    | Type    | Description                 |
+| -------- | ------- | --------------------------- |
+| at       | String  | The path to be git kept.    |
 
 ## keepDirectoriesInGit
 
