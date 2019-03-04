@@ -61,12 +61,12 @@ execute: async ({ args, options, wd }) => {
     loadCommand(app, commandName),
     { args: commandArgs, options, wd }
   );
-  replaceInstructions(reverse(map(getInstructions(), revertInstruction)));
+  replaceInstructions(reverse(map(getInstructions(), reverseInstruction)));
 }
 ```
 
 It uses `executeCommand` to execute the original command. Remember that it's
-not immediately executed. We revert every instruction in the executor
+not immediately executed. We reverse every instruction in the executor
 instruction stack and reverse their order. When Scaffold Kit is executing the
 instructions, it executes the opposite of the original instructions.
 

@@ -10,7 +10,7 @@ title: Execution API
 | [pushInstructions](#pushinstructions)   |
 | [getInstructions](#getinstructions)     |
 | [replaceInstructions](#replaceinstructions) |
-| [revertInstruction](#revertinstruction) |
+| [reverseInstruction](#reverseInstruction) |
 | [setExecutorOption](#setexecutoroption) |
 | [resetExecutor](#resetexecutor)         |
 
@@ -113,7 +113,7 @@ Replace the instructions in the executor's instruction stack.
 | Parameter 1     | [Instruction](data-types.md#instruction) | The instruction object.       | Required       |
 | Return value    | Void                                     |                               |                |
 
-## revertInstruction
+## reverseInstruction
 
 Get a new instruction which has the opposite behavior to the given instruction.
 For example, given `createFile` at `some/path`, the return value is `deleteFile`
@@ -122,7 +122,7 @@ at `some/path`.
 | Field           | Type                             | Description                           | Default value  |
 | --------------- | -------------------------------- | ------------------------------------- | -------------- |
 | Parameter 1     | [Instruction](data-types.md#instruction) | The given instruction.        | Required       |
-| Return value    | [Instruction](data-types.md#instruction) | The reverted instruction.     |                |
+| Return value    | [Instruction](data-types.md#instruction) | The reverse instruction.      |                |
 
 ## setExecutorOption
 

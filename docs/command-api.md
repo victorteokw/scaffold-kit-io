@@ -64,7 +64,7 @@ execute: async ({ args, options, wd }) => {
     loadCommand(app, commandName),
     { args: commandArgs, options, wd }
   );
-  replaceInstructions(reverse(map(getInstructions(), revertInstruction)));
+  replaceInstructions(reverse(map(getInstructions(), reverseInstruction)));
 }
 ```
 
@@ -89,7 +89,7 @@ execute: async ({ args, options, wd }) => {
     loadCommand(app, commandName),
     { args: commandArgs, options, wd }
   );
-  replaceInstructions(reverse(map(getInstructions(), revertInstruction)));
+  replaceInstructions(reverse(map(getInstructions(), reverseInstruction)));
 }
 ```
 

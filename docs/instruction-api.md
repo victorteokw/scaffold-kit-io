@@ -36,6 +36,13 @@ title: Instruction API
 
 Create a new file at given path.
 
+| Field    | Type    | Description                                                |
+| -------- | ------- | ---------------------------------------------------------- |
+| content  | String  | The file's template string. Exclusive with `from`.         |
+| from     | String  | Where to copy the file template. Exclusive with `content`. |
+| at       | String  | The destination path.                                      |
+| context  | Object  | The rendering context.                                     |
+
 ## createFiles
 
 Create new files at given paths.
@@ -43,6 +50,10 @@ Create new files at given paths.
 ## deleteFile
 
 Delete an existing file at given path.
+
+| Field    | Type    | Description                                                |
+| -------- | ------- | ---------------------------------------------------------- |
+| at       | String  | Where the file locates.                                    |
 
 ## deleteFiles
 
@@ -52,6 +63,13 @@ Delete existing files at given paths.
 
 Append content to an existing file at given path.
 
+| Field    | Type    | Description                                                |
+| -------- | ------- | ---------------------------------------------------------- |
+| content  | String  | The new content's template string. Exclusive with `from`.  |
+| from     | String  | Where to copy the file template. Exclusive with `content`. |
+| at       | String  | The name of the file to be appended.                       |
+| context  | Object  | The rendering context.                                     |
+
 ## appendFiles
 
 Append content to existing files at given paths.
@@ -60,6 +78,13 @@ Append content to existing files at given paths.
 
 Remove file content at the bottom from an existing file at given path.
 
+| Field    | Type    | Description                                                         |
+| -------- | ------- | ------------------------------------------------------------------- |
+| content  | String  | The content to be removed's template string. Exclusive with `from`. |
+| from     | String  | Where to get the content's template. Exclusive with `content`.      |
+| at       | String  | The name of the file.                                               |
+| context  | Object  | The rendering context.                                              |
+
 ## detachFromFiles
 
 Remove file content at the bottom from existing files at given paths.
@@ -67,6 +92,12 @@ Remove file content at the bottom from existing files at given paths.
 ## updateFile
 
 Update an existing file at given path.
+
+| Field      | Type             | Description                                                                |
+| ---------- | ---------------- | -------------------------------------------------------------------------- |
+| updator    | String -> String | The content updator. Take the original content and return the new content. |
+| rollbacker | String -> String | The content rollbacker. Used for reverse transforming `rollbackFile`.      |
+| at         | String           | The name of the file to be updated.                                        |
 
 ## updateFiles
 

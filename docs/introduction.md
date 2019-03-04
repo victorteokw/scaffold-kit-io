@@ -27,7 +27,7 @@ we found there are a lot of common patterns and features. We pull out the common
 and fundamental features from the scaffold tools, created Scaffold Kit.
 
 With Scaffold Kit, creating a scaffold tool is as easy as following a tutorial,
-and takes even shorter time than copying code.
+and it takes even shorter time than copying code.
 
 ## Core concepts
 
@@ -47,7 +47,7 @@ rearranged and optimized.
 * __executor__ the executor is the object that orchestrates the execution of
 instructions. It manages where template files are located, and where to generate
 the output files. It has global options that can be toggled. It has functions to
-manipulate or revert a instruction. And at last, it executes the instructions.
+manipulate or reverse an instruction. And at last, it executes the instructions.
 
 * __behavioral__ a complicated scaffold tool supports complex generation
 configurations. Some configuration tweaks the entire behavior of the generated
