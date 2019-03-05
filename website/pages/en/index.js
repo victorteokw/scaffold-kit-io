@@ -104,13 +104,13 @@ const Features = () => (
     {[
       {
         content: 'This is the content of my feature',
-        image: imgUrl('tool-red.svg'),
+        image: imgUrl('explosion.svg'),
         imageAlign: 'top',
-        title: 'Few Setup Code',
+        title: 'Powerful Feature Set',
       },
       {
-        content: 'Wrap existing projects into scaffold tools in 1 minute with 3 commands.',
-        image: imgUrl('tool-red.svg'),
+        content: 'Wrap an existing project into a scaffolding tool in 1 minute with 3 commands.',
+        image: imgUrl('thunder.svg'),
         imageAlign: 'top',
         title: 'Stunningly Easy to Develop',
       },
