@@ -9,6 +9,8 @@
     "rename-version": "docusaurus-rename-version"
   },
   "devDependencies": {
-    "docusaurus": "^1.5.1"
+    "docusaurus": "^1.8.0",
+    "react": "^16.8.6",
+    "terminal-veeloy": "^0.5.1"
   }
 }
