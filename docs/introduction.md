@@ -64,7 +64,7 @@ shell commands, installing and removing dependencies.
 several commands, the execution and options are automatically merged.
 
 * __reversible instruction__ with a builtin function, you can reverse an
-instruction into it's reversed instruction. For example, reverse installing into
+instruction into its reversed instruction. For example, reverse installing into
 removing, reverse creating a file into deleting a file.
 
 * __behavioral__ create complicated scaffold tool with builtin behavioral

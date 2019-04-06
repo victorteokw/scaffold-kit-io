@@ -27,6 +27,19 @@ function pageUrl(page, language) {
   return siteConfig.baseUrl + (language ? `${language}/` : '') + page;
 }
 
+class DemoSection extends React.Component {
+  componentDidMount() {
+    
+  }
+  render() {
+    return (
+      <div className="demo">
+        <div className="line">        create index.js</div>
+      </div>
+    );
+  }
+}
+
 class Button extends React.Component {
   render() {
     return (
@@ -103,13 +116,13 @@ const Features = () => (
   <Block layout="fourColumn">
     {[
       {
-        content: 'This is the content of my feature',
+        content: 'Including instruction reordering, instruction reversing, compound command, multilevel option definition, option serialization, smart reporter, auto help message generation, unit testing support and more.',
         image: imgUrl('explosion.svg'),
         imageAlign: 'top',
         title: 'Powerful Feature Set',
       },
       {
-        content: 'Wrap an existing project into a scaffolding tool in 1 minute with 3 commands.',
+        content: 'Few boilerplate code. Automated developing process. Wrap an existing project into a scaffolding tool in 1 minute with 3 commands.',
         image: imgUrl('thunder.svg'),
         imageAlign: 'top',
         title: 'Stunningly Easy to Develop',
@@ -205,6 +218,7 @@ class Index extends React.Component {
       <div>
         <HomeSplash language={language} />
         <div className="mainContainer">
+          <DemoSection />
           <Features />
           <FeatureCallout />
           <LearnHow />
