@@ -159,10 +159,10 @@ const LearnHow = () => (
     <div className="wrapper">
       <div className="gridBlock">
         <div className="blockElement alignCenter imageAlignSide imageAlignLeft twoByGridBlock">
-        <div class="blockImage">
+        <div className="blockImage">
           <img src={imgUrl('open-book.svg')} style={{maxHeight: 200, maxWidth: 200}} />
         </div>
-          <div class="blockContent">
+          <div className="blockContent">
             <h2><div><span><p>Learn How</p></span></div></h2>
             <div>
               <span>
@@ -181,7 +181,7 @@ const Install = () => (
     <div className="wrapper">
       <div className="gridBlock">
         <div className="blockElement alignCenter imageAlignSide imageAlignRight twoByGridBlock">
-          <div class="blockContent">
+          <div className="blockContent">
             <h2><div><span><p>Installation</p></span></div></h2>
             <div>
               <span>
@@ -191,7 +191,7 @@ const Install = () => (
               </span>
             </div>
           </div>
-          <div class="blockImage">
+          <div className="blockImage">
             <img className="spinning-around" src={imgUrl('settings.svg')} style={{
               maxHeight: 200,
               maxWidth: 200
