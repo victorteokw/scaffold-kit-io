@@ -39,26 +39,25 @@ class Footer extends React.Component {
           </div>
           <div>
             <h5>Community</h5>
-            <a href={this.pageUrl('users.html', this.props.language)}>
-              User Showcase
-            </a>
             <a
-              href="http://stackoverflow.com/questions/tagged/"
+              href="https://stackoverflow.com/search?q=scaffold+kit"
               target="_blank"
               rel="noreferrer noopener">
               Stack Overflow
             </a>
-            <a href="https://discordapp.com/">Project Chat</a>
             <a
-              href="https://twitter.com/"
-              target="_blank"
-              rel="noreferrer noopener">
-              Twitter
+              href={this.props.config.repoUrl + '/issues'}
+              target="_blank">
+              GitHub Issues
             </a>
           </div>
           <div>
             <h5>More</h5>
-            <a href="https://github.com/">GitHub</a>
+            <a
+              href={this.props.config.repoUrl}
+              target="_blank">
+              GitHub
+            </a>
             <a
               className="github-button"
               href={this.props.config.repoUrl}
