@@ -13,6 +13,8 @@ const MarkdownBlock = CompLibrary.MarkdownBlock; /* Used to read markdown */
 const Container = CompLibrary.Container;
 const GridBlock = CompLibrary.GridBlock;
 
+const DemoSection = require(`${process.cwd()}/core/DemoSection.js`);
+
 const siteConfig = require(`${process.cwd()}/siteConfig.js`);
 
 function imgUrl(img) {
@@ -25,19 +27,6 @@ function docUrl(doc, language) {
 
 function pageUrl(page, language) {
   return siteConfig.baseUrl + (language ? `${language}/` : '') + page;
-}
-
-class DemoSection extends React.Component {
-  componentDidMount() {
-
-  }
-  render() {
-    return (
-      <div className="demo">
-        <div className="line">        create index.js</div>
-      </div>
-    );
-  }
 }
 
 class Button extends React.Component {
