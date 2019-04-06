@@ -14,7 +14,7 @@ const users = [];
 const siteConfig = {
   title: 'Scaffold Kit', // Title for your website.
   tagline: 'Build powerful scaffolding tools easy and fast',
-  url: 'https://scaffold-kit.io', // Your website URL
+  url: 'http://scaffold-kit.com', // Your website URL
   baseUrl: '/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
