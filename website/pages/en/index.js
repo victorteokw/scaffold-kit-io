@@ -124,8 +124,33 @@ const FeatureCallout = () => (
   <div
     className="productShowcaseSection paddingBottom"
     style={{textAlign: 'center'}}>
-    <h2>Feature Callout</h2>
-    <MarkdownBlock>These are features of this project</MarkdownBlock>
+    <h2>Killer Features</h2>
+    <div className="wrapper killer-container">
+      <div className="killer-item">
+        <img className="killer-img" src={imgUrl('1-order.svg')} />
+        <div className="killer-con">Instruction Reordering</div>
+      </div>
+      <div className="killer-item">
+        <img className="killer-img" src={imgUrl('2-reverse.svg')} />
+        <div className="killer-con">Instruction Reversing</div>
+      </div>
+      <div className="killer-item">
+        <img className="killer-img" src={imgUrl('3-compound.svg')} />
+        <div className="killer-con">Compound Command</div>
+      </div>
+      <div className="killer-item">
+        <img className="killer-img" src={imgUrl('4-help.svg')} />
+        <div className="killer-con">Fancy Help Message</div>
+      </div>
+      <div className="killer-item">
+        <img className="killer-img" src={imgUrl('5-serialization.svg')} />
+        <div className="killer-con">Options Serialization</div>
+      </div>
+      <div className="killer-item">
+        <img className="killer-img" src={imgUrl('6-test.svg')} />
+        <div className="killer-con">Unit Test Utilities</div>
+      </div>
+    </div>
   </div>
 );
 
