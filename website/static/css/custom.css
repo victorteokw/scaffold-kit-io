@@ -33,17 +33,61 @@
     -moz-animation:spin 12.2s linear infinite;
     animation:spin 12.2s linear infinite;
 }
+
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+@media only screen and (max-width: 1080px) {
+  .killer-item {
+    width: 120px;
+    height: 120px;
+    padding: 12px;
+  }
+  .killer-img {
+    margin-top: 0;
+    max-width: 50px;
+    max-height: 50px;
+  }
+  .killer-con {
+    margin-top: 4px;
+    margin-left: -12px;
+    margin-right: -12px;
+    white-space: normal;
+    text-overflow: ellipsis;
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 830px) {
+  .killer-container {
+    flex-wrap: wrap;
+  }
+  .killer-item {
+    flex: 1 1 200px;
+    border: none;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .killer-container {
+    flex-wrap: wrap;
+  }
+  .killer-item {
+    flex: 1 1 120px;
+    border: none;
+  }
+}
 
 @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
 }
 
 @media only screen and (min-width: 1024px) {
+
 }
 
 @media only screen and (max-width: 1023px) {
+
 }
 
 @media only screen and (min-width: 1400px) {
