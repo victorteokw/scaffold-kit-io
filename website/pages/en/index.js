@@ -82,8 +82,8 @@ class HomeSplash extends React.Component {
         <div className="inner">
           <ProjectTitle />
           <PromoSection>
-            <Button href={docUrl('introduction.html', language)}>Read the Docs&nbsp;&nbsp;→</Button>
-            <Button href="#try">Try it out</Button>
+            <Button href={docUrl('introduction', language)}>Read the Docs&nbsp;&nbsp;→</Button>
+            <Button href="#install">Install</Button>
             <Button href="https://github.com/zhangkaiyulw/scaffold-kit">Github</Button>
           </PromoSection>
         </div>
@@ -130,48 +130,52 @@ const FeatureCallout = () => (
 );
 
 const LearnHow = () => (
-  <Block background="light">
-    {[
-      {
-        content: 'Talk about learning how to use this',
-        image: imgUrl('docusaurus.svg'),
-        imageAlign: 'right',
-        title: 'Learn How',
-      },
-    ]}
-  </Block>
+  <div id="install" className="container paddingTop paddingBottom" style={{height: 330}}>
+    <div className="wrapper">
+      <div className="gridBlock">
+        <div className="blockElement alignCenter imageAlignSide imageAlignLeft twoByGridBlock">
+        <div class="blockImage">
+          <img src={imgUrl('open-book.svg')} style={{maxHeight: 200, maxWidth: 200}} />
+        </div>
+          <div class="blockContent">
+            <h2><div><span><p>Learn How</p></span></div></h2>
+            <div>
+              <span>
+                Learn how to use Scaffold Kit through our detailed <a href={docUrl('start-a-new-project')}>programming guide</a>.
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 );
 
-const TryOut = () => (
-  <MarkdownBlock>
-    These are features of this project.
-    ```bash
-      npm install -g scaffold-kit-cli
-    ```
-  </MarkdownBlock>
-  // <Block id="try">
-  //   {[
-  //     {
-  //       content: 'a',
-  //       image: imgUrl('teamwork.svg'),
-  //       imageAlign: 'left',
-  //       title: 'Try it Out',
-  //     },
-  //   ]}
-  // </Block>
-);
-
-const Description = () => (
-  <Block background="dark">
-    {[
-      {
-        content: 'This is another description of how this project is useful',
-        image: imgUrl('docusaurus.svg'),
-        imageAlign: 'right',
-        title: 'Description',
-      },
-    ]}
-  </Block>
+const Install = () => (
+  <div id="install" className="container lightBackground paddingTop paddingBottom" style={{height: 330}}>
+    <div className="wrapper">
+      <div className="gridBlock">
+        <div className="blockElement alignCenter imageAlignSide imageAlignRight twoByGridBlock">
+          <div class="blockContent">
+            <h2><div><span><p>Installation</p></span></div></h2>
+            <div>
+              <span>
+                <MarkdownBlock>
+                  Install Scaffold Kit by running `npm install -g scaffold-kit-cli`.
+                </MarkdownBlock>
+              </span>
+            </div>
+          </div>
+          <div class="blockImage">
+            <img className="spinning-around" src={imgUrl('settings.svg')} style={{
+              maxHeight: 200,
+              maxWidth: 200
+            }} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 );
 
 class Index extends React.Component {
@@ -185,9 +189,8 @@ class Index extends React.Component {
           <DemoSection />
           <Features />
           <FeatureCallout />
+          <Install />
           <LearnHow />
-          <TryOut />
-          <Description />
         </div>
       </div>
     );
